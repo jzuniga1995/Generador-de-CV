@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de CV</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<link rel="stylesheet" href="styles.css">
+
+
+</head>
+<body>
+    <div class="container">
+        <h1>Generador de Curriculum Vitae</h1>
+        <!-- Formulario para recoger los datos -->
+        <form id="cv-form">
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" required>
+
+            <label for="titulo">Título Profesional:</label>
+            <input type="text" id="titulo" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" required>
+
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" required>
+
+            <label for="experiencia">Experiencia Laboral (separar por ;):</label>
+            <textarea id="experiencia" required></textarea>
+
+            <label for="educacion">Educación (separar por ;):</label>
+            <textarea id="educacion" required></textarea>
+
+            <label for="habilidades">Habilidades (separar por ,):</label>
+            <input type="text" id="habilidades" required>
+
+            <label for="qrcode-link">Enlace para el Código QR (opcional):</label>
+            <input type="url" id="qrcode-link" placeholder="https://...">
+
+            <label for="foto">Subir Foto:</label>
+            <input type="file" id="foto" accept="image/*">
+
+            <label for="idioma">Idioma:</label>
+            <select id="idioma">
+                <option value="es">Español</option>
+                <option value="en">Inglés</option>
+            </select>
+
+            <label for="plantilla">Plantilla:</label>
+            <select id="plantilla">
+                <option value="clasica">Clásica</option>
+                <option value="moderno">Moderno</option>
+                <option value="minimalista">Minimalista</option>
+            </select>
+
+            <button type="button" id="generatePdf">Generar PDF</button>
+        </form>
+
+        <div id="progress-bar-container">
+            <div id="progress">
+                <div class="bar" id="progress-bar"></div>
+            </div>
+        </div>
+
+        
+        
+        
+        <!-- Elemento para generar el código QR -->
+        <div id="qrcode" style="display: none;"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
